@@ -17,6 +17,8 @@ public class LibraryTest {
      
         assertEquals("User should only be able to borrow one book per day", 
                      1, library.listBorrowedBooks(false).size());
+
+                     System.out.println("hej");
     }
-    //hejdågg
+    
 }
