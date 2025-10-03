@@ -18,11 +18,8 @@ public class LibraryTest {
         
         assertEquals("User should be able to borrow this one book.", 
                      1, library.listBorrowedBooks(false).size());
+                     System.out.print("andradan");
     }
-
-<<<<<<< Updated upstream
-    //hej
-=======
     @Test
     public void borrowBook_whenBorrowingTwoBooksSameDay_shouldFail() {
         Library library = new Library();
@@ -130,5 +127,5 @@ public class LibraryTest {
 
     
    
->>>>>>> Stashed changes
+
 }
