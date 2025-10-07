@@ -124,8 +124,63 @@ public class LibraryTest {
                     1, library.listBorrowedBooks(false).size());
     }
 
+    @Test
+    public void testCanOnlyBorrowOneBookPerTitle() {
+        Library library = new Library();
+
+        
+        library.borrowBook("Harry Potter");
+        library.borrowBook("Harry Potter");
+
+        
+        int borrowedCount = library.listBorrowedBooks(false).size();
+
+        assertEquals(1, borrowedCount);
+    }
+
+    @Test
+    public void testCanBorrowOneBookPerTitle() {
+        Library library = new Library();
+
+        library.borrowBook("Harry Potter");
+
+        int borrowedCount = library.listBorrowedBooks(false).size();
+
+        assertEquals(1, borrowedCount);
+    }
+
+   @Test
+public void lateFee_shouldBe20KrPerDay() {
+    Library library = new Library();
+    library.borrowBook("Harry Potter");
 
     
+    for (int i = 0; i < 10; i++) {
+        library.advanceDay();
+    }
+
+    
+    int lateFee = library.returnBook("Harry Potter");
+
+    
+    assertEquals("Late fee should be 20 kr per late day", 60, lateFee);
+}
+
+    @Test
+public void lateFee_shouldBe20KrPerLateDay() {
+    Library library = new Library();
+    library.borrowBook("Harry Potter");
+
+   
+    for (int i = 0; i < 10; i++) {
+        library.advanceDay();
+    }
+
+    
+    int lateFee = library.returnBook("Harry Potter");
+    assertEquals(60, lateFee);
+}
+
    
 
 }
