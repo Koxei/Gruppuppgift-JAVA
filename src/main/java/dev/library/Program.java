@@ -37,8 +37,12 @@ public class Program {
                 case "G":
                     library.listBorrowedBooksBy(Library.GENRE);
                     break;
+                //BUG HITTAD I (case "E":)
+                //FATTADES EN (break;)
+                //                      Eftersom ingenting fanns i "case Q"; så hände ingenting. Koden fungerade normalt då "case E" använde sig av "case Q" break;
                 case "E":
                     extendTime();
+                    break;
                 case "Q":
                     break;
                 default:
